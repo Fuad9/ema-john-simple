@@ -5,10 +5,12 @@
   margin-right: 10px;
   padding-bottom: 5px;
 }
-.product .product-name {
+
+.product-name {
   font-weight: 400;
   color: blue;
 }
+
 .product .cart-button {
   background-color: goldenrod;
   width: 180px;

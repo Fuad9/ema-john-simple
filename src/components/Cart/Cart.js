@@ -1,9 +1,13 @@
 import React from "react";
+import "./Cart.css";
 
 const Cart = (props) => {
   const cart = props.cart;
-  console.log(cart); //Here cart is an array
-  const totalItemPrice = cart.reduce((total, prod) => total + prod.price, 0); //Applying array.reduce method
+  // console.log(cart); //Here cart is an array
+  const totalItemPrice = cart.reduce(
+    (total, prod) => total + prod.price * prod.quantity,
+    0
+  ); //Applying array.reduce method
 
   // Setting shipping cost
   let shipping = 0;
@@ -15,7 +19,9 @@ const Cart = (props) => {
     shipping = 12.99;
   }
 
-  let grandTotalPrice = totalItemPrice + shipping;
+  const tax = (totalItemPrice / 10).toFixed(2);
+
+  const grandTotalPrice = (totalItemPrice + shipping + Number(tax)).toFixed(2);
 
   const formatNumber = (num) => {
     let precision = num.toFixed(2);
@@ -29,8 +35,9 @@ const Cart = (props) => {
       <h5>Items: {formatNumber(totalItemPrice)}</h5>
       <h5>Shipping & Handling: {shipping}</h5>
       <h5>Total before tax: {formatNumber(shipping + totalItemPrice)}</h5>
-      <h5>Estimated tax: </h5>
-      <h5>Order Total : {formatNumber(grandTotalPrice)}</h5>
+      <h5>Estimated tax: {tax}</h5>
+      <h5>Order Total : {grandTotalPrice}</h5>
+      {props.children}
     </div>
   );
 };
