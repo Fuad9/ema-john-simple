@@ -8,19 +8,17 @@ import fakeData from "../../fakeData";
 import { useState } from "react";
 import ReviewItems from "../ReviewItems/ReviewItems";
 import Cart from "../Cart/Cart";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import happyImage from "../../images/giphy.gif";
 
 const Review = () => {
   const [cart, setCart] = useState([]);
-
   const [orderPlaced, setOrderPlaced] = useState(false);
 
-  // to clean database by handler
-  const handlePlaceOrder = () => {
-    setCart([]);
-    setOrderPlaced(true);
-    processOrder();
+  const history = useHistory();
+
+  const handleProceedCheckout = () => {
+    history.push("/shipment");
   };
 
   // Click handler
@@ -30,6 +28,7 @@ const Review = () => {
     removeFromDatabaseCart(productKey);
   };
 
+  //load data from local storage
   useEffect(() => {
     const savedCart = getDatabaseCart();
     const productKeys = Object.keys(savedCart);
@@ -59,11 +58,9 @@ const Review = () => {
         {thankYou}
       </div>
       <Cart cart={cart}>
-        <Link to="/review">
-          <button className="cart-button" onClick={handlePlaceOrder}>
-            Place Order
-          </button>
-        </Link>
+        <button className="cart-button" onClick={handleProceedCheckout}>
+          Proceed Checkout
+        </button>
       </Cart>
     </div>
   );
