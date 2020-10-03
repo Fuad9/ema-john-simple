@@ -5,7 +5,7 @@ const Cart = (props) => {
   const cart = props.cart;
   // console.log(cart); //Here cart is an array
   const totalItemPrice = cart.reduce(
-    (total, prod) => total + prod.price * prod.quantity,
+    (total, prod) => total + prod.price * (prod.quantity || 1),
     0
   ); //Applying array.reduce method
 

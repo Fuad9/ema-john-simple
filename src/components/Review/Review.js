@@ -28,17 +28,33 @@ const Review = () => {
     removeFromDatabaseCart(productKey);
   };
 
-  //load data from local storage
+  // to load multiple data not all from database
   useEffect(() => {
     const savedCart = getDatabaseCart();
     const productKeys = Object.keys(savedCart);
-    const countProducts = productKeys.map((k) => {
-      const product = fakeData.find((prod) => prod.key === k);
-      product.quantity = savedCart[k];
-      return product;
-    });
-    setCart(countProducts);
+
+    fetch("http://localhost:5000/productsByKeys", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(productKeys),
+    })
+      .then((res) => res.json())
+      .then((data) => setCart(data));
   }, []);
+
+  console.log(cart);
+
+  // //load data from local storage
+  // useEffect(() => {
+  //   const savedCart = getDatabaseCart();
+  //   const productKeys = Object.keys(savedCart);
+  //   const countProducts = productKeys.map((k) => {
+  //     const product = fakeData.find((prod) => prod.key === k);
+  //     product.quantity = savedCart[k];
+  //     return product;
+  //   });
+  //   setCart(countProducts);
+  // }, []);
 
   let thankYou;
   if (orderPlaced) {
