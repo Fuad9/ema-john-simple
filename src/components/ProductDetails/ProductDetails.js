@@ -9,7 +9,7 @@ const ProductDetails = () => {
   // const product = fakeData.find((prod) => prod.key === productKey);
 
   useEffect(() => {
-    fetch("http://localhost:5000/product/" + productKey)
+    fetch("https://frozen-everglades-38727.herokuapp.com/product/" + productKey)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [productKey]);

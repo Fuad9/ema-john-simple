@@ -100,7 +100,7 @@ const Inventory = () => {
       ...url,
     };
 
-    fetch("http://localhost:5000/addProduct", {
+    fetch("https://frozen-everglades-38727.herokuapp.com/addProduct", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -115,13 +115,15 @@ const Inventory = () => {
     const products = { key, category, name };
 
     const productKey = products.key.key;
-    console.log(productKey);
 
-    fetch(`http://localhost:5000/update/${productKey}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(products),
-    })
+    fetch(
+      `https://frozen-everglades-38727.herokuapp.com/update/${productKey}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(products),
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
   };

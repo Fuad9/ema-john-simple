@@ -33,7 +33,7 @@ const Review = () => {
     const savedCart = getDatabaseCart();
     const productKeys = Object.keys(savedCart);
 
-    fetch("http://localhost:5000/productsByKeys", {
+    fetch("https://frozen-everglades-38727.herokuapp.com/productsByKeys", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(productKeys),
@@ -41,8 +41,6 @@ const Review = () => {
       .then((res) => res.json())
       .then((data) => setCart(data));
   }, []);
-
-  console.log(cart);
 
   // //load data from local storage
   // useEffect(() => {

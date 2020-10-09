@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../App";
 import { getDatabaseCart, processOrder } from "../../utilities/databaseManager";
+import ProcessPayment from "../ProcessPayment/ProcessPayment";
 import "./Shipment.css";
 
 const Shipment = () => {
@@ -16,7 +17,7 @@ const Shipment = () => {
       orderTime: new Date(),
     };
 
-    fetch("http://localhost:5000/addOrders", {
+    fetch("https://frozen-everglades-38727.herokuapp.com/addOrders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderDetails),
@@ -30,27 +31,33 @@ const Shipment = () => {
       });
   };
 
-
   return (
-    <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
-      <input
-        name="name"
-        defaultValue={loggedInUser.name}
-        ref={register({ required: true })}
-        placeholder="Your Name"
-      />
-      {errors.name && <span className="error">Name is required</span>}
-      <input
-        name="email"
-        defaultValue={loggedInUser.email}
-        ref={register({ required: true })}
-        placeholder="Your Email"
-      />
-      {errors.email && <span className="error">Email is required</span>}
-      <img src={loggedInUser.photo} alt="" />
+    <div className="row">
+      <div className="col-md-6">
+        <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            name="name"
+            defaultValue={loggedInUser.name}
+            ref={register({ required: true })}
+            placeholder="Your Name"
+          />
+          {errors.name && <span className="error">Name is required</span>}
+          <input
+            name="email"
+            defaultValue={loggedInUser.email}
+            ref={register({ required: true })}
+            placeholder="Your Email"
+          />
+          {errors.email && <span className="error">Email is required</span>}
+          <img style={{ width: "200px" }} src={loggedInUser.photo} alt="" />
 
-      <input type="submit" />
-    </form>
+          <input type="submit" />
+        </form>
+      </div>
+      <div className="col-md-6">
+        <ProcessPayment />
+      </div>
+    </div>
   );
 };
 

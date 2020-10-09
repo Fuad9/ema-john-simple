@@ -49,11 +49,25 @@ export const handleGoogleSignIn = () => {
         photo: photoURL,
         success: true,
       };
+      setUserToken();
       return signedInUser;
     })
     .catch((error) => {
       console.log(error);
       console.log(error.message);
+    });
+};
+
+// to configure JWT
+const setUserToken = () => {
+  firebase
+    .auth()
+    .currentUser.getIdToken(true)
+    .then(function (idToken) {
+      sessionStorage.setItem("userToken", idToken);
+    })
+    .catch(function (error) {
+      // Handle error
     });
 };
 
