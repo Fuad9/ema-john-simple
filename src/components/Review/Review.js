@@ -76,15 +76,3 @@ const Review = () => {
 };
 
 export default Review;
-
-//  //load data from local storage
-//  useEffect(() => {
-//   const savedCart = getDatabaseCart();
-//   const productKeys = Object.keys(savedCart);
-//   const countProducts = productKeys.map((k) => {
-//     const product = fakeData.find((prod) => prod.key === k);
-//     product.quantity = savedCart[k];
-//     return product;
-//   });
-//   setCart(countProducts);
-// }, []);
