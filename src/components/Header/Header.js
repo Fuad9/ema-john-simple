@@ -11,10 +11,15 @@ const Header = () => {
     <div className="header">
       <img src={logo} alt="" />
       <nav>
-        <Link to="/shop">Shop</Link>
-        <Link to="/review">Order Review</Link>
-        <Link to="/inventory">Manage Inventory here</Link>
-
+        <Link to="/shop" style={{ textDecoration: "none" }}>
+          Shop
+        </Link>
+        <Link to="/review" style={{ textDecoration: "none" }}>
+          Order Review
+        </Link>
+        <Link to="/inventory" style={{ textDecoration: "none" }}>
+          Manage Inventory here
+        </Link>
         <button onClick={() => setLoggedInUser({})}>Sign Out</button>
       </nav>
     </div>

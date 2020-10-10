@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../App";
 import { getDatabaseCart, processOrder } from "../../utilities/databaseManager";
@@ -8,12 +8,19 @@ import "./Shipment.css";
 const Shipment = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [shippingData, setShippingData] = useState(null);
+
   const onSubmit = (data) => {
+    setShippingData(data);
+  };
+
+  const handlePaymentSuccess = (paymentId) => {
     const savedCart = getDatabaseCart();
     const orderDetails = {
       ...loggedInUser,
       products: savedCart,
-      shipment: data,
+      shipment: shippingData,
+      paymentId,
       orderTime: new Date(),
     };
 
@@ -26,14 +33,16 @@ const Shipment = () => {
       .then((data) => {
         if (data) {
           processOrder();
-          alert("your order placed successfully");
         }
       });
   };
 
   return (
     <div className="row">
-      <div className="col-md-6">
+      <div
+        style={{ display: shippingData ? "none" : "block" }}
+        className="col-md-6"
+      >
         <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
           <input
             name="name"
@@ -50,12 +59,28 @@ const Shipment = () => {
           />
           {errors.email && <span className="error">Email is required</span>}
           <img style={{ width: "200px" }} src={loggedInUser.photo} alt="" />
-
+          <input
+            name="address"
+            ref={register({ required: true })}
+            placeholder="Your Address"
+          />
+          {errors.address && <span className="error">Address is required</span>}
+          <input
+            name="phone"
+            ref={register({ required: true })}
+            placeholder="Your Phone Number"
+          />
+          {errors.phone && (
+            <span className="error">Phone Number is required</span>
+          )}
           <input type="submit" />
         </form>
       </div>
-      <div className="col-md-6">
-        <ProcessPayment />
+      <div
+        style={{ display: shippingData ? "block" : "none" }}
+        className="col-md-6"
+      >
+        <ProcessPayment handlePayment={handlePaymentSuccess} />
       </div>
     </div>
   );

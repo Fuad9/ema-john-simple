@@ -39,20 +39,15 @@ const Review = () => {
       body: JSON.stringify(productKeys),
     })
       .then((res) => res.json())
-      .then((data) => setCart(data));
+      .then((data) => {
+        const countProducts = productKeys.map((k) => {
+          const product = fakeData.find((prod) => prod.key === k);
+          product.quantity = savedCart[k];
+          return product;
+        });
+        setCart(countProducts);
+      });
   }, []);
-
-  // //load data from local storage
-  // useEffect(() => {
-  //   const savedCart = getDatabaseCart();
-  //   const productKeys = Object.keys(savedCart);
-  //   const countProducts = productKeys.map((k) => {
-  //     const product = fakeData.find((prod) => prod.key === k);
-  //     product.quantity = savedCart[k];
-  //     return product;
-  //   });
-  //   setCart(countProducts);
-  // }, []);
 
   let thankYou;
   if (orderPlaced) {
@@ -81,3 +76,15 @@ const Review = () => {
 };
 
 export default Review;
+
+//  //load data from local storage
+//  useEffect(() => {
+//   const savedCart = getDatabaseCart();
+//   const productKeys = Object.keys(savedCart);
+//   const countProducts = productKeys.map((k) => {
+//     const product = fakeData.find((prod) => prod.key === k);
+//     product.quantity = savedCart[k];
+//     return product;
+//   });
+//   setCart(countProducts);
+// }, []);

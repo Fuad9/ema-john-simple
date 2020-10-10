@@ -9,10 +9,10 @@ const stripePromise = loadStripe(
   "pk_test_51HZzG7ArBFgLFbtiRdd2xd1ftOBToblWfu8yNFw9qvtmJeqCp9HIilMWihuB29x3sV7w8HX0Oy0cFIgE0Z11N3eV00xAHj7241"
 );
 
-const ProcessPayment = () => {
+const ProcessPayment = ({ handlePayment }) => {
   return (
     <Elements stripe={stripePromise}>
-      <SimpleCardForm />
+      <SimpleCardForm handlePayment={handlePayment} />
     </Elements>
   );
 };

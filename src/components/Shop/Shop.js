@@ -9,16 +9,21 @@ import {
 import { Link } from "react-router-dom";
 
 const Shop = () => {
-  // Show Products
-  // const firstTen = fakeData.slice(0, 10);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("https://frozen-everglades-38727.herokuapp.com/products")
+    fetch(
+      "https://frozen-everglades-38727.herokuapp.com/products?search=" + search
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [search]);
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
 
   useEffect(() => {
     const savedCart = getDatabaseCart();
@@ -54,6 +59,13 @@ const Shop = () => {
   return (
     <div className="shop-container">
       <div className="product-container">
+        <input
+          type="text"
+          onBlur={handleSearch}
+          className="form-control m-5 w-75"
+          placeholder="search products"
+        />
+        <br />
         {products.map((prod) => (
           <Product
             key={prod.key}
