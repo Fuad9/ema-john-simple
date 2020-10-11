@@ -15,15 +15,16 @@ const Shop = () => {
 
   useEffect(() => {
     fetch(
-      "https://frozen-everglades-38727.herokuapp.com/products?search=" + search
+      `https://frozen-everglades-38727.herokuapp.com/products?search=${search}`
     )
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [search]);
 
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
-  };
+  // const handleSearch = (event) => {
+  //   const searchText = event.target.value;
+  //   setSearch(searchText);
+  // };
 
   useEffect(() => {
     const savedCart = getDatabaseCart();
@@ -61,10 +62,11 @@ const Shop = () => {
       <div className="product-container">
         <input
           type="text"
-          onBlur={handleSearch}
+          onBlur={(e) => setSearch(e.target.value)}
           className="form-control m-5 w-75"
           placeholder="search products"
         />
+        <button>Search</button>
         <br />
         {products.map((prod) => (
           <Product
