@@ -7,13 +7,15 @@ import { Link } from "react-router-dom";
 const Product = (props) => {
   const { img, name, seller, price, stock, key } = props.product;
   return (
-    <div className="product">
-      <div>
-        <img src={img} alt="" />
+    <div className="product row">
+      <div className="col-sm-10 col-md-5">
+        <img className="img-fluid w-100" src={img} alt="" />
       </div>
-      <div className="ml-5">
+      <div className="ml-5 col-sm-10 col-md-5">
         <h3 className="product-name">
-          <Link to={"/product/" + key}>{name}</Link>
+          <Link style={{ textDecoration: "none" }} to={"/product/" + key}>
+            {name}
+          </Link>
         </h3>
         <p>
           <small>by: {seller}</small>

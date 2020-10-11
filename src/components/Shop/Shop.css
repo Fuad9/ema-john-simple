@@ -9,3 +9,24 @@
   border-right: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
 }
+
+.product-container input {
+  margin: 15px 0 10px 20px;
+  border-radius: 30px;
+  outline: none;
+  width: 75%;
+  height: 60px;
+}
+
+.product-container input:hover {
+  border: 4px solid green;
+}
+
+.product-container button {
+  border-radius: 30px;
+  margin-left: -50px;
+  background-color: blue;
+  outline: none;
+  height: 61px;
+  width: 100px;
+}
