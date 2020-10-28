@@ -1,69 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Creative Agency Website
 
-## Available Scripts
+<img src="https://i.ibb.co/kMwZyJk/emaJohn.png" alt="ema john simple" />
 
-In the project directory, you can run:
+This project live link is here [Click here](https://ema-john-simple-c3f01.web.app/).
 
-### `npm start`
+## About this Project
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A MERN stack e-commerce web application where you can order any product. After hitting add to cart button, products will be added to cart, a customer will be able to see product details by clicking over a product. customer can r
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `Features`
 
-### `npm test`
+1. Client Lists, available services, featured works, customers feedback, contact form showed on home page.
+2. Login vai Google.
+3. Customer's dashboard
+4. Designed order form, customer ordered service list and review form in the customer's dashboard.
+5. Also included admin panel.
+6. Implemented form to add new service, add somebody as admin in admin panel.
+7. Have options for admins to see full order list of all the customers. 
+8. Kept three status options like ongoing, pending, done for admins.
+9. Customers can view their individual ordered service status provided by the admins on their dashboard.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Technology`
 
-### `npm run build`
+1. React
+2. React Router
+3. Node.js
+4. Express.js
+5. MongoDB
+6. Firebase Authentication
+7. Heroku
+8. Material UI
+9. Bootstrap
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# ema-john-simple
