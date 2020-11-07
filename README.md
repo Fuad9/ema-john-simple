@@ -4,7 +4,7 @@
 
 This project live link is here [Click here](https://ema-john-simple-c3f01.web.app/)
 <br />
-Server: [Click here](https://github.com/Fuad9/ema-john-server)
+Code: [Server](https://github.com/Fuad9/ema-john-server)
 <br />
 Resume: [Click here](https://drive.google.com/file/d/1MeVsJm8yHwUXvnvfv-XBqE7Al3NxKDih/view?usp=sharing)
 <br />
