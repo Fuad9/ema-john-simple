@@ -1,8 +1,14 @@
 # Ema John Commerce 
 
-<img src="https://i.ibb.co/kMwZyJk/emaJohn.png" alt="ema john simple" />
+<img src="https://i.ibb.co/T4SLQNw/ema1.png" alt="ema john simple" />
 
-This project live link is here [Click here](https://ema-john-simple-c3f01.web.app/).
+This project live link is here [Click here](https://ema-john-simple-c3f01.web.app/)
+<br />
+Server: [Click here](https://github.com/Fuad9/ema-john-server)
+<br />
+Resume: [Click here](https://drive.google.com/file/d/1MeVsJm8yHwUXvnvfv-XBqE7Al3NxKDih/view?usp=sharing)
+<br />
+Portfolio: [Click here](https://fuad-portfolio.netlify.app/)
 
 ### About this Project
 
